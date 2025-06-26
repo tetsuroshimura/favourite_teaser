@@ -17,7 +17,7 @@ export default function MarqueeText() {
           className="whitespace-nowrap font-bold animate-marquee"
           style={{
             fontFamily: 'Monument Grotesk, sans-serif',
-            fontSize: 'clamp(40px, 5.56vw, 120px)',
+            fontSize: 'clamp(80px, 5.56vw, 120px)',
             lineHeight: 'clamp(80px, 8vw, 160px)',
             letterSpacing: '2px',
             fontWeight: 400,

@@ -44,7 +44,7 @@ export default function ColorPicker({ onColorChange }: ColorPickerProps) {
       {/* Small circular color swatch */}
       <button
         onClick={togglePicker}
-        className="rounded-full border border-black transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50"
+        className="rounded-full border border-black transition-all duration-300 focus:outline-none"
         style={{ 
           backgroundColor: selectedColor,
           width: '20px',
@@ -58,7 +58,7 @@ export default function ColorPicker({ onColorChange }: ColorPickerProps) {
 
       {/* Large color picker panel */}
       <div
-        className={`absolute top-10 left-0 bg-white rounded-lg shadow-2xl border border-gray-200 p-4 min-w-[160px] transform transition-all duration-300 origin-top-left ${
+        className={`absolute top-10 right-0 lg:left-0 lg:right-auto bg-white rounded-lg shadow-2xl border border-gray-200 p-4 min-w-[160px] transform transition-all duration-300 origin-top-right lg:origin-top-left ${
           isOpen 
             ? 'opacity-100 scale-100 translate-y-0' 
             : 'opacity-0 scale-95 -translate-y-2 pointer-events-none'
