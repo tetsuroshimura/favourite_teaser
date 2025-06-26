@@ -28,7 +28,7 @@ export default function CurvedText() {
       <text 
         className="fill-gray-800 font-medium"
         style={{ 
-          fontFamily: 'Noto Sans JP, sans-serif',
+          fontFamily: 'MFW-PIshiiGothicStdN-M',
           fontSize: 'clamp(10px, 3vw, 13.2px)',
           letterSpacing: '0px'
         }}

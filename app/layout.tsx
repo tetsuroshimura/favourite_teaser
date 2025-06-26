@@ -34,6 +34,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="stylesheet" href="https://morisawafonts.net/c/01JYMVWWK1RZRSMGX144DJKKTR/mf.css" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${notoSansJP.variable} antialiased`}
       >
