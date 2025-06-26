@@ -25,11 +25,12 @@ export default function CurvedTextMobile() {
       
       {/* Japanese text following the mobile path */}
       <text 
-        className="fill-gray-800 font-medium"
+        className="fill-gray-800"
         style={{ 
-          fontFamily: 'MFW-PIshiiGothicStdN-M',
+          fontFamily: '"Monument Grotesk", "MFW-PIshiiGothicStdN-M", "Noto Sans JP", sans-serif',
           fontSize: 'clamp(8px, 2.5vw, 12px)',
-          letterSpacing: '0px'
+          letterSpacing: '0px',
+          fontWeight: 400
         }}
       >
         <textPath href="#textPathMobile" startOffset="0%">

@@ -26,11 +26,12 @@ export default function CurvedText() {
       
       {/* Static Japanese text following the path */}
       <text 
-        className="fill-gray-800 font-medium"
+        className="fill-gray-800"
         style={{ 
-          fontFamily: 'MFW-PIshiiGothicStdN-M',
+          fontFamily: '"Monument Grotesk", "MFW-PIshiiGothicStdN-M", "Noto Sans JP", sans-serif',
           fontSize: 'clamp(10px, 3vw, 13.2px)',
-          letterSpacing: '0px'
+          letterSpacing: '0px',
+          fontWeight: 400
         }}
       >
         <textPath href="#textPath" startOffset="0%">

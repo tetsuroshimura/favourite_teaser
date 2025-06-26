@@ -282,6 +282,20 @@ input[type="color"]::-moz-color-swatch {
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Marquee Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
 /* Mobile responsiveness */
 @media (max-width: 768px) {
   .color-picker-swatch {
