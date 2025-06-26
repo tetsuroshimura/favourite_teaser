@@ -96,12 +96,35 @@ app/
 ```
 
 ### Key Technologies
-- **Next.js 15.3.4**: React framework with App Router
+- **Next.js 15.3.4**: React framework with App Router and static export
 - **TypeScript**: Type-safe development
 - **Tailwind CSS 4**: Utility-first styling with custom configuration
 - **Custom Fonts**: Monument Grotesk font family
 - **SVG Manipulation**: Dynamic stroke color updates via DOM queries
 - **Responsive Design**: Mobile-first approach with desktop enhancements
+- **Static Export**: Configured for deployment to any static hosting platform
+
+### Static Export Configuration
+
+This project is configured for static export with the following settings:
+
+```typescript
+// next.config.ts
+const nextConfig: NextConfig = {
+  output: 'export',           // Enable static export
+  trailingSlash: true,        // Add trailing slashes for compatibility
+  images: {
+    unoptimized: true         // Disable image optimization for static export
+  }
+};
+```
+
+All dynamic features are client-side compatible:
+- ✅ useState and useEffect hooks
+- ✅ DOM manipulation and event handlers
+- ✅ Client-side SVG color manipulation
+- ✅ Responsive design and viewport-based scaling
+- ✅ Local asset fetching (fonts, SVGs)
 
 ## 📊 Typography Scaling
 
@@ -114,7 +137,29 @@ Desktop typography uses viewport-based scaling with 1440px as the baseline:
 
 ## 🚀 Deployment
 
-### Vercel (Recommended)
+This project is configured for static export and compatible with all static hosting platforms.
+
+### Cloudflare Pages ⭐ (Recommended for Static Sites)
+
+1. **Connect GitHub Repository**
+   - Go to [Cloudflare Pages](https://pages.cloudflare.com/)
+   - Connect your GitHub account
+   - Select `tetsuroshimura/favourite_teaser` repository
+
+2. **Build Configuration**
+   ```
+   Build command: npm run export
+   Build output directory: out
+   ```
+
+3. **Environment Variables** (if needed)
+   - None required for this static site
+
+4. **Custom Domain** (optional)
+   - Add your custom domain in Cloudflare Pages dashboard
+   - Configure DNS settings
+
+### Vercel
 
 1. **Connect to Vercel**
    ```bash
@@ -124,29 +169,26 @@ Desktop typography uses viewport-based scaling with 1440px as the baseline:
 
 2. **Automatic Deployment**
    - Push to main branch triggers automatic deployment
-   - Environment variables can be configured in Vercel dashboard
+   - Vercel automatically detects Next.js and static export configuration
+
+### Netlify
+
+1. **Connect Repository**
+   - Go to [Netlify](https://netlify.com)
+   - Connect your GitHub repository
+
+2. **Build Settings**
+   ```
+   Build command: npm run export
+   Publish directory: out
+   ```
 
 ### GitHub Pages
 
-1. **Add deployment script to package.json**
-   ```json
-   {
-     "scripts": {
-       "export": "next build && next export"
-     }
-   }
-   ```
-
-2. **Configure next.config.ts for static export**
-   ```typescript
-   const nextConfig = {
-     output: 'export',
-     trailingSlash: true,
-     images: {
-       unoptimized: true
-     }
-   }
-   ```
+The project is already configured for static export with:
+- ✅ `export` script in package.json
+- ✅ Static export configuration in next.config.ts
+- ✅ Unoptimized images for static hosting
 
 ### Manual Build
 
