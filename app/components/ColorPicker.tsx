@@ -91,8 +91,8 @@ export default function ColorPicker({ onColorChange }: ColorPickerProps) {
         </div>
 
         {/* Quick preset colors */}
-        <div className="mt-3 grid grid-cols-6 gap-1">
-          {['#ffffff', '#f8f9fa', '#e9ecef', '#495057', '#212529', '#000000'].map((color) => (
+        <div className="mt-3 grid grid-cols-7 gap-1">
+          {['#ffffff', '#f8f9fa', '#e9ecef', '#F4F2AE', '#495057', '#212529', '#000000'].map((color) => (
             <button
               key={color}
               onClick={() => {

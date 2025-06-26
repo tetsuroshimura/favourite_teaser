@@ -198,28 +198,28 @@ export default function Home() {
           </p>
           <div className="text-left" style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
             <div className="leading-relaxed">
-              <span className="text-black font-medium mr-2" style={{ fontFamily: 'Monument Grotesk, "MFW-PIshiiGothicStdN-M", sans-serif', fontWeight: 400, fontSize: '18px' }}>#Web Design</span>
-              <span className="text-black font-medium mr-2" style={{ fontFamily: 'Monument Grotesk, "MFW-PIshiiGothicStdN-M", sans-serif', fontWeight: 400, fontSize: '18px' }}>#Graphic Design</span>
-              <span className="text-black font-medium mr-2" style={{ fontFamily: '"MFW-PIshiiGothicStdN-M", "Monument Grotesk", sans-serif', fontSize: '18px' }}>#富士日記</span>
+              <span className="text-black font-medium" style={{ fontFamily: 'Monument Grotesk, "MFW-PIshiiGothicStdN-M", sans-serif', fontWeight: 400, fontSize: '18px', marginLeft: '10px' }}>#Web Design</span>
+              <span className="text-black font-medium" style={{ fontFamily: 'Monument Grotesk, "MFW-PIshiiGothicStdN-M", sans-serif', fontWeight: 400, fontSize: '18px', marginLeft: '10px' }}>#Graphic Design</span>
+              <span className="text-black font-medium" style={{ fontFamily: '"MFW-PIshiiGothicStdN-M", "Monument Grotesk", sans-serif', fontSize: '18px', marginLeft: '10px' }}>#富士日記</span>
             </div>
             <div className="leading-relaxed">
-              <span className="text-black font-medium mr-2" style={{ fontFamily: 'Monument Grotesk, "MFW-PIshiiGothicStdN-M", sans-serif', fontWeight: 400, fontSize: '18px' }}>#Typeface</span>
-              <span className="text-black font-medium mr-2" style={{ fontFamily: 'Monument Grotesk, "MFW-PIshiiGothicStdN-M", sans-serif', fontWeight: 400, fontSize: '18px' }}>#SF</span>
-              <span className="text-black font-medium mr-2" style={{ fontFamily: 'Monument Grotesk, "MFW-PIshiiGothicStdN-M", sans-serif', fontWeight: 400, fontSize: '18px' }}>#Surly</span>
+              <span className="text-black font-medium" style={{ fontFamily: 'Monument Grotesk, "MFW-PIshiiGothicStdN-M", sans-serif', fontWeight: 400, fontSize: '18px', marginLeft: '10px' }}>#Typeface</span>
+              <span className="text-black font-medium" style={{ fontFamily: 'Monument Grotesk, "MFW-PIshiiGothicStdN-M", sans-serif', fontWeight: 400, fontSize: '18px', marginLeft: '10px' }}>#SF</span>
+              <span className="text-black font-medium" style={{ fontFamily: 'Monument Grotesk, "MFW-PIshiiGothicStdN-M", sans-serif', fontWeight: 400, fontSize: '18px', marginLeft: '10px' }}>#Surly</span>
             </div>
             <div className="leading-relaxed">
-              <span className="text-black font-medium mr-2" style={{ fontFamily: 'Monument Grotesk, "MFW-PIshiiGothicStdN-M", sans-serif', fontWeight: 400, fontSize: '18px' }}>#Dark Souls</span>
-              <span className="text-black font-medium mr-2" style={{ fontFamily: 'Monument Grotesk, "MFW-PIshiiGothicStdN-M", sans-serif', fontWeight: 400, fontSize: '18px' }}>#Rivendell</span>
-              <span className="text-black font-medium mr-2" style={{ fontFamily: '"MFW-PIshiiGothicStdN-M", "Monument Grotesk", sans-serif', fontSize: '18px' }}>#深沢七郎</span>
+              <span className="text-black font-medium" style={{ fontFamily: 'Monument Grotesk, "MFW-PIshiiGothicStdN-M", sans-serif', fontWeight: 400, fontSize: '18px', marginLeft: '10px' }}>#Dark Souls</span>
+              <span className="text-black font-medium" style={{ fontFamily: 'Monument Grotesk, "MFW-PIshiiGothicStdN-M", sans-serif', fontWeight: 400, fontSize: '18px', marginLeft: '10px' }}>#Rivendell</span>
+              <span className="text-black font-medium" style={{ fontFamily: '"MFW-PIshiiGothicStdN-M", "Monument Grotesk", sans-serif', fontSize: '18px', marginLeft: '10px' }}>#深沢七郎</span>
             </div>
             <div className="leading-relaxed">
-              <span className="text-black font-medium mr-2" style={{ fontFamily: '"MFW-PIshiiGothicStdN-M", "Monument Grotesk", sans-serif', fontSize: '18px' }}>#弱虫ペダル</span>
-              <span className="text-black font-medium mr-2" style={{ fontFamily: '"MFW-PIshiiGothicStdN-M", "Monument Grotesk", sans-serif', fontSize: '18px' }}>#セザンヌ</span>
-              <span className="text-black font-medium mr-2" style={{ fontFamily: 'Monument Grotesk, "MFW-PIshiiGothicStdN-M", sans-serif', fontWeight: 400, fontSize: '18px' }}>#Crust Bikes</span>
+              <span className="text-black font-medium" style={{ fontFamily: '"MFW-PIshiiGothicStdN-M", "Monument Grotesk", sans-serif', fontSize: '18px', marginLeft: '10px' }}>#弱虫ペダル</span>
+              <span className="text-black font-medium" style={{ fontFamily: '"MFW-PIshiiGothicStdN-M", "Monument Grotesk", sans-serif', fontSize: '18px', marginLeft: '10px' }}>#セザンヌ</span>
+              <span className="text-black font-medium" style={{ fontFamily: 'Monument Grotesk, "MFW-PIshiiGothicStdN-M", sans-serif', fontWeight: 400, fontSize: '18px', marginLeft: '10px' }}>#Crust Bikes</span>
             </div>
             <div className="leading-relaxed">
-              <span className="text-black font-medium mr-2" style={{ fontFamily: '"MFW-PIshiiGothicStdN-M", "Monument Grotesk", sans-serif', fontSize: '18px' }}>#タナカカツキ</span>
-              <span className="text-black font-medium" style={{ fontFamily: 'Monument Grotesk, "MFW-PIshiiGothicStdN-M", sans-serif', fontWeight: 400, fontSize: '18px' }}>#Kasper Florio</span>
+              <span className="text-black font-medium" style={{ fontFamily: '"MFW-PIshiiGothicStdN-M", "Monument Grotesk", sans-serif', fontSize: '18px', marginLeft: '10px' }}>#タナカカツキ</span>
+              <span className="text-black font-medium" style={{ fontFamily: 'Monument Grotesk, "MFW-PIshiiGothicStdN-M", sans-serif', fontWeight: 400, fontSize: '18px', marginLeft: '10px' }}>#Kasper Florio</span>
             </div>
           </div>
         </div>
@@ -329,28 +329,28 @@ export default function Home() {
             </p>
             <div className="text-left mb-4" style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
               <div className="leading-tight">
-                <span className="text-black font-medium mr-1" style={{ fontFamily: 'Monument Grotesk, "MFW-PIshiiGothicStdN-M", sans-serif', fontWeight: 400, fontSize: '18px' }}>#Web Design</span>
-                <span className="text-black font-medium mr-1" style={{ fontFamily: 'Monument Grotesk, "MFW-PIshiiGothicStdN-M", sans-serif', fontWeight: 400, fontSize: '18px' }}>#Graphic Design</span>
-                <span className="text-black font-medium mr-1" style={{ fontFamily: '"MFW-PIshiiGothicStdN-M", "Monument Grotesk", sans-serif' }}>宮崎駿</span>
-                <span className="text-black font-medium mr-1" style={{ fontFamily: '"MFW-PIshiiGothicStdN-M", "Monument Grotesk", sans-serif', fontSize: '18px' }}>#富士日記</span>
-                <span className="text-black font-medium mr-1" style={{ fontFamily: 'Monument Grotesk, "MFW-PIshiiGothicStdN-M", sans-serif', fontWeight: 400, fontSize: '18px' }}>#Typeface</span>
-                <span className="text-black font-medium mr-1" style={{ fontFamily: 'Monument Grotesk, "MFW-PIshiiGothicStdN-M", sans-serif', fontWeight: 400, fontSize: '18px' }}>#SF</span>
-                <span className="text-black font-medium" style={{ fontFamily: 'Monument Grotesk, "MFW-PIshiiGothicStdN-M", sans-serif', fontWeight: 400, fontSize: '18px' }}>#Surly</span>
-                <span className="text-black font-medium" style={{ fontFamily: 'Monument Grotesk, "MFW-PIshiiGothicStdN-M", sans-serif', fontWeight: 400, fontSize: '18px' }}>#Deltro</span>
+                <span className="text-black font-medium" style={{ fontFamily: 'Monument Grotesk, "MFW-PIshiiGothicStdN-M", sans-serif', fontWeight: 400, fontSize: '18px', marginLeft: '10px' }}>#Web Design</span>
+                <span className="text-black font-medium" style={{ fontFamily: 'Monument Grotesk, "MFW-PIshiiGothicStdN-M", sans-serif', fontWeight: 400, fontSize: '18px', marginLeft: '10px' }}>#Graphic Design</span>
+                <span className="text-black font-medium" style={{ fontFamily: '"MFW-PIshiiGothicStdN-M", "Monument Grotesk", sans-serif', fontSize: '18px', marginLeft: '10px' }}>宮崎駿</span>
+                <span className="text-black font-medium" style={{ fontFamily: '"MFW-PIshiiGothicStdN-M", "Monument Grotesk", sans-serif', fontSize: '18px', marginLeft: '10px' }}>#富士日記</span>
+                <span className="text-black font-medium" style={{ fontFamily: 'Monument Grotesk, "MFW-PIshiiGothicStdN-M", sans-serif', fontWeight: 400, fontSize: '18px', marginLeft: '10px' }}>#Typeface</span>
+                <span className="text-black font-medium" style={{ fontFamily: 'Monument Grotesk, "MFW-PIshiiGothicStdN-M", sans-serif', fontWeight: 400, fontSize: '18px', marginLeft: '10px' }}>#SF</span>
+                <span className="text-black font-medium" style={{ fontFamily: 'Monument Grotesk, "MFW-PIshiiGothicStdN-M", sans-serif', fontWeight: 400, fontSize: '18px', marginLeft: '10px' }}>#Surly</span>
+                <span className="text-black font-medium" style={{ fontFamily: 'Monument Grotesk, "MFW-PIshiiGothicStdN-M", sans-serif', fontWeight: 400, fontSize: '18px', marginLeft: '10px' }}>#Deltro</span>
               </div>
               <div className="leading-tight">
-                <span className="text-black font-medium mr-1" style={{ fontFamily: 'Monument Grotesk, "MFW-PIshiiGothicStdN-M", sans-serif', fontWeight: 400, fontSize: '18px' }}>#DarkSouls</span>
-                <span className="text-black font-medium mr-1" style={{ fontFamily: 'Monument Grotesk, "MFW-PIshiiGothicStdN-M", sans-serif', fontWeight: 400, fontSize: '18px' }}>#Rivendell</span>
-                <span className="text-black font-medium" style={{ fontFamily: 'Monument Grotesk, "MFW-PIshiiGothicStdN-M", sans-serif', fontWeight: 400, fontSize: '18px' }}>#Semitransparent Design</span>
-                <span className="text-black font-medium mr-1" style={{ fontFamily: '"MFW-PIshiiGothicStdN-M", "Monument Grotesk", sans-serif', fontSize: '18px' }}>#深沢七郎</span>
-                <span className="text-black font-medium mr-1" style={{ fontFamily: '"MFW-PIshiiGothicStdN-M", "Monument Grotesk", sans-serif' }}>服部一成</span>
-                <span className="text-black font-medium" style={{ fontFamily: '"MFW-PIshiiGothicStdN-M", "Monument Grotesk", sans-serif', fontSize: '18px' }}>#セザンヌ</span>
+                <span className="text-black font-medium" style={{ fontFamily: 'Monument Grotesk, "MFW-PIshiiGothicStdN-M", sans-serif', fontWeight: 400, fontSize: '18px', marginLeft: '10px' }}>#DarkSouls</span>
+                <span className="text-black font-medium" style={{ fontFamily: 'Monument Grotesk, "MFW-PIshiiGothicStdN-M", sans-serif', fontWeight: 400, fontSize: '18px', marginLeft: '10px' }}>#Rivendell</span>
+                <span className="text-black font-medium" style={{ fontFamily: 'Monument Grotesk, "MFW-PIshiiGothicStdN-M", sans-serif', fontWeight: 400, fontSize: '18px', marginLeft: '10px' }}>#Semitransparent Design</span>
+                <span className="text-black font-medium" style={{ fontFamily: '"MFW-PIshiiGothicStdN-M", "Monument Grotesk", sans-serif', fontSize: '18px', marginLeft: '10px' }}>#深沢七郎</span>
+                <span className="text-black font-medium" style={{ fontFamily: '"MFW-PIshiiGothicStdN-M", "Monument Grotesk", sans-serif', fontSize: '18px', marginLeft: '10px' }}>服部一成</span>
+                <span className="text-black font-medium" style={{ fontFamily: '"MFW-PIshiiGothicStdN-M", "Monument Grotesk", sans-serif', fontSize: '18px', marginLeft: '10px' }}>#セザンヌ</span>
               </div>
               <div className="leading-tight">
-                <span className="text-black font-medium mr-1" style={{ fontFamily: 'Monument Grotesk, "MFW-PIshiiGothicStdN-M", sans-serif', fontWeight: 400, fontSize: '18px' }}>#Crust Bikes</span>
-                <span className="text-black font-medium mr-1" style={{ fontFamily: 'Monument Grotesk, "MFW-PIshiiGothicStdN-M", sans-serif', fontWeight: 400, fontSize: '18px' }}>#Fontaines DC</span>
-                <span className="text-black font-medium mr-1" style={{ fontFamily: '"MFW-PIshiiGothicStdN-M", "Monument Grotesk", sans-serif', fontSize: '18px' }}>#タナカカツキ</span>
-                <span className="text-black font-medium" style={{ fontFamily: 'Monument Grotesk, "MFW-PIshiiGothicStdN-M", sans-serif', fontWeight: 400, fontSize: '18px' }}>#Kasper Florio</span>
+                <span className="text-black font-medium" style={{ fontFamily: 'Monument Grotesk, "MFW-PIshiiGothicStdN-M", sans-serif', fontWeight: 400, fontSize: '18px', marginLeft: '10px' }}>#Crust Bikes</span>
+                <span className="text-black font-medium" style={{ fontFamily: 'Monument Grotesk, "MFW-PIshiiGothicStdN-M", sans-serif', fontWeight: 400, fontSize: '18px', marginLeft: '10px' }}>#Fontaines DC</span>
+                <span className="text-black font-medium" style={{ fontFamily: '"MFW-PIshiiGothicStdN-M", "Monument Grotesk", sans-serif', fontSize: '18px', marginLeft: '10px' }}>#タナカカツキ</span>
+                <span className="text-black font-medium" style={{ fontFamily: 'Monument Grotesk, "MFW-PIshiiGothicStdN-M", sans-serif', fontWeight: 400, fontSize: '18px', marginLeft: '10px' }}>#Kasper Florio</span>
               </div>
             </div>
             <div className="text-left flex items-center gap-2">

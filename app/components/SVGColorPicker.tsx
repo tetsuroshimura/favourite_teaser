@@ -91,8 +91,8 @@ export default function SVGColorPicker({ onColorChange }: SVGColorPickerProps) {
         </div>
 
         {/* Quick preset colors */}
-        <div className="mt-3 grid grid-cols-6 gap-1">
-          {['#0039CB', '#000000', '#374151', '#dc2626', '#059669', '#7c3aed'].map((color) => (
+        <div className="mt-3 grid grid-cols-7 gap-1">
+          {['#0039CB', '#000000', '#374151', '#BFBFBf', '#dc2626', '#059669', '#7c3aed'].map((color) => (
             <button
               key={color}
               onClick={() => {

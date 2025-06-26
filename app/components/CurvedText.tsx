@@ -29,7 +29,7 @@ export default function CurvedText() {
         className="fill-gray-800"
         style={{ 
           fontFamily: '"Monument Grotesk", "MFW-PIshiiGothicStdN-M", "Noto Sans JP", sans-serif',
-          fontSize: 'clamp(10px, 3vw, 13.2px)',
+          fontSize: 'clamp(12px, 3.6vw, 15.84px)',
           letterSpacing: '0px',
           fontWeight: 400
         }}
