@@ -1,26 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
+
+@font-face {
+  font-family: 'Monument Grotesk';
+  src: url('/monument-grotesk-regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Monument Grotesk';
+  src: url('/monument-grotesk-medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #1a1a1a;
+  
+  /* Blue Color Palette */
+  --blue-50: #f0f7ff;
+  --blue-100: #e0efff;
+  --blue-200: #b9dfff;
+  --blue-300: #7cc4ff;
+  --blue-400: #36a3ff;
+  --blue-500: #0976f2;
+  --blue-600: #0054d1;
+  --blue-700: #0041a8;
+  --blue-800: #06368a;
+  --blue-900: #0a2f72;
+  
+  /* Artistic Blue (Primary brand color) */
+  --artistic-blue: #4a90e2;
+  --artistic-blue-light: #6ba3e8;
+  --artistic-blue-dark: #3b7bc9;
+  
+  /* Gray Scale */
+  --gray-50: #fafafa;
+  --gray-100: #f5f5f5;
+  --gray-200: #e5e5e5;
+  --gray-300: #d4d4d4;
+  --gray-400: #a3a3a3;
+  --gray-500: #737373;
+  --gray-600: #525252;
+  --gray-700: #404040;
+  --gray-800: #262626;
+  --gray-900: #171717;
+  
+  /* Typography */
+  --font-japanese: 'Noto Sans JP', var(--font-geist-sans), 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+  --font-heading: 'Monument Grotesk', var(--font-geist-sans), sans-serif;
+  --font-body: var(--font-japanese);
+  
+  /* Spacing & Layout */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4rem;
+  
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --color-artistic-blue: var(--artistic-blue);
+  --color-artistic-blue-light: var(--artistic-blue-light);
+  --color-artistic-blue-dark: var(--artistic-blue-dark);
+  --color-blue-50: var(--blue-50);
+  --color-blue-100: var(--blue-100);
+  --color-blue-200: var(--blue-200);
+  --color-blue-300: var(--blue-300);
+  --color-blue-400: var(--blue-400);
+  --color-blue-500: var(--blue-500);
+  --color-blue-600: var(--blue-600);
+  --color-blue-700: var(--blue-700);
+  --color-blue-800: var(--blue-800);
+  --color-blue-900: var(--blue-900);
+  --color-gray-50: var(--gray-50);
+  --color-gray-100: var(--gray-100);
+  --color-gray-200: var(--gray-200);
+  --color-gray-300: var(--gray-300);
+  --color-gray-400: var(--gray-400);
+  --color-gray-500: var(--gray-500);
+  --color-gray-600: var(--gray-600);
+  --color-gray-700: var(--gray-700);
+  --color-gray-800: var(--gray-800);
+  --color-gray-900: var(--gray-900);
+  --font-sans: var(--font-japanese);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  
+  /* Responsive Breakpoints */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-japanese);
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography Classes */
+.text-artistic-blue {
+  color: var(--artistic-blue);
+}
+
+.bg-artistic-blue {
+  background-color: var(--artistic-blue);
+}
+
+.border-artistic-blue {
+  border-color: var(--artistic-blue);
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  :root {
+    --spacing-lg: 1rem;
+    --spacing-xl: 1.5rem;
+    --spacing-2xl: 2rem;
+    --spacing-3xl: 2.5rem;
+  }
+  
+  /* Mobile-specific adjustments for curved text */
+  svg text {
+    font-size: clamp(10px, 3vw, 14px) !important;
+  }
+  
+  /* Ensure proper text wrapping on mobile */
+  .break-all {
+    word-break: break-all;
+  }
+  
+  /* Mobile artwork optimization */
+  .max-w-lg {
+    max-width: 90vw;
+  }
+  
+  /* Mobile artwork rotation container */
+  .max-w-xs {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  
+  /* Ensure rotated artwork fits properly */
+  [style*="rotate(90deg)"] {
+    width: 100% !important;
+    height: 100% !important;
+    overflow: visible;
+  }
+}
+
+/* Additional mobile optimizations */
+@media (max-width: 480px) {
+  /* Extra small mobile devices */
+  .text-4xl {
+    font-size: 2rem;
+  }
+  
+  svg text {
+    font-size: clamp(8px, 2.5vw, 12px) !important;
+  }
+  
+  /* Smaller mobile artwork */
+  .max-w-lg {
+    max-width: 95vw;
+  }
+}
+
+/* Ensure curved text remains visible and readable */
+@media (max-width: 1024px) {
+  svg text textPath {
+    font-size: inherit;
+    letter-spacing: 0;
+  }
+}
+
+/* Enhanced color picker styling */
+.color-picker-swatch {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.color-picker-swatch::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  padding: 2px;
+  background: linear-gradient(45deg, rgba(0,0,0,0.1), rgba(255,255,255,0.1));
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.color-picker-swatch:hover::before {
+  opacity: 1;
+}
+
+/* Enhanced color input styling */
+input[type="color"] {
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+  border-radius: 8px;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border: none;
+  border-radius: 6px;
+}
+
+input[type="color"]::-moz-color-swatch {
+  border: none;
+  border-radius: 6px;
+}
+
+/* Preset color buttons */
+.preset-color-button {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.preset-color-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.preset-color-button:active {
+  transform: scale(1.05);
+}
+
+/* Color picker panel animations */
+.color-picker-panel-enter {
+  opacity: 0;
+  transform: scale(0.95) translateY(-8px);
+}
+
+.color-picker-panel-enter-active {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.color-picker-panel-exit {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+.color-picker-panel-exit-active {
+  opacity: 0;
+  transform: scale(0.95) translateY(-8px);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .color-picker-swatch {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .color-picker-panel {
+    min-width: 140px;
+  }
 }

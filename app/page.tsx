@@ -1,103 +1,374 @@
+'use client';
+
 import Image from "next/image";
+import CurvedText from "./components/CurvedText";
+import CurvedTextMobile from "./components/CurvedTextMobile";
+import ColorPicker from "./components/ColorPicker";
+import SVGColorPicker from "./components/SVGColorPicker";
+import { useState, useEffect } from "react";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [backgroundColor, setBackgroundColor] = useState('#ffffff');
+  const [svgColor, setSvgColor] = useState('#0039CB');
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+  const handleBackgroundColorChange = (color: string) => {
+    setBackgroundColor(color);
+  };
+
+  const handleSvgColorChange = (color: string) => {
+    setSvgColor(color);
+  };
+
+  // Update SVG stroke colors when svgColor changes
+  useEffect(() => {
+    const updateSvgColors = () => {
+      console.log('Updating SVG colors to:', svgColor);
+      
+      // Wait for images to load and then query for embedded SVGs
+      const images = document.querySelectorAll('img[src$=".svg"]');
+      console.log(`Found ${images.length} SVG images`);
+      
+      // Also query for direct SVG elements in the DOM
+      const directSvgPaths = document.querySelectorAll('svg path');
+      console.log(`Found ${directSvgPaths.length} direct SVG paths`);
+      
+      let foundPaths = 0;
+      
+      // Update direct SVG paths
+      directSvgPaths.forEach((path, index) => {
+        console.log(`Direct SVG path ${index}:`, path);
+        const currentStroke = path.getAttribute('stroke');
+        console.log(`Current stroke: ${currentStroke}`);
+        
+        if (currentStroke && currentStroke !== 'none' && currentStroke !== 'transparent') {
+          (path as SVGPathElement).setAttribute('stroke', svgColor);
+          foundPaths++;
+          console.log(`Updated direct SVG path ${index} stroke to ${svgColor}`);
+        }
+      });
+      
+      // For SVG images, we need to replace them with inline SVGs to modify stroke
+      images.forEach((img, index) => {
+        const imgElement = img as HTMLImageElement;
+        console.log(`Processing SVG image ${index}:`, imgElement.src);
+        
+        if (imgElement.src.includes('human01')) {
+          fetch(imgElement.src)
+            .then(response => response.text())
+            .then(svgText => {
+              console.log(`Fetched SVG content for image ${index}`);
+              
+              // Create a new SVG element
+              const parser = new DOMParser();
+              const svgDoc = parser.parseFromString(svgText, 'image/svg+xml');
+              const svgElement = svgDoc.querySelector('svg');
+              
+              if (svgElement) {
+                // Copy attributes from img to svg
+                svgElement.style.width = '100%';
+                svgElement.style.height = '100%';
+                svgElement.style.position = 'absolute';
+                svgElement.style.top = '0';
+                svgElement.style.left = '0';
+                
+                // Update all path strokes
+                const paths = svgElement.querySelectorAll('path[stroke]');
+                paths.forEach(path => {
+                  (path as SVGPathElement).setAttribute('stroke', svgColor);
+                  foundPaths++;
+                });
+                
+                console.log(`Updated ${paths.length} paths in SVG image ${index}`);
+                
+                // Replace the image with the inline SVG
+                if (imgElement.parentNode) {
+                  imgElement.parentNode.insertBefore(svgElement, imgElement);
+                  imgElement.style.display = 'none';
+                }
+              }
+            })
+            .catch(error => {
+              console.error(`Failed to fetch SVG ${index}:`, error);
+            });
+        }
+      });
+      
+      console.log(`Total direct paths updated: ${foundPaths}`);
+    };
+
+    // Add a small delay to ensure DOM is ready
+    setTimeout(updateSvgColors, 200);
+  }, [svgColor]);
+
+  return (
+    <div 
+      className="min-h-screen transition-colors duration-300" 
+      style={{ backgroundColor }}
+    >
+      {/* Color Pickers - Desktop: top-left, Mobile: top-right */}
+      <div className="fixed top-4 right-4 lg:left-4 lg:right-auto z-50 flex items-center gap-2.5">
+        <ColorPicker onColorChange={handleBackgroundColorChange} />
+        <SVGColorPicker onColorChange={handleSvgColorChange} />
+      </div>
+      
+      {/* Mobile Layout */}
+      <div className="lg:hidden flex flex-col min-h-screen">
+        {/* Mobile Header */}
+        <header>
+          <h1 className="font-normal text-gray-900 leading-none" style={{ fontFamily: 'Monument Grotesk, sans-serif', marginLeft: '20px', marginTop: '20px', fontSize: '50px' }}>
+            Favourite
+          </h1>
+        </header>
+
+        {/* Mobile Artwork Area */}
+        <div className="flex-1 flex items-center justify-center relative overflow-hidden" style={{ paddingTop: '30px' }}>
+          <div 
+            className="relative"
+            style={{ 
+              width: '400px',
+              height: '520px',
+              maxWidth: '90vw'
+            }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            <div 
+              className="absolute inset-0"
+              style={{ 
+                width: '100%',
+                height: '100%'
+              }}
+            >
+              <Image
+                src="/human01_sp.svg"
+                alt="Human artwork"
+                fill
+                className="object-contain"
+                priority
+              />
+              {/* Mobile Curved Text overlay */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="relative w-full h-full">
+                  <CurvedTextMobile />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+        {/* Mobile Contact Section */}
+        <div className="p-4">
+          <div className="text-left mb-4">
+            <p 
+              className="text-black mb-2 font-normal"
+              style={{ 
+                fontFamily: 'Monument Grotesk, Arial, sans-serif',
+                fontSize: '24px',
+                lineHeight: 'normal'
+              }}
+            >
+              Contact
+            </p>
+            <a 
+              href="mailto:tetsuro@favouriteforalongtime.info" 
+              className="text-black font-normal break-all"
+              style={{ 
+                fontFamily: 'Monument Grotesk, Arial, sans-serif',
+                fontSize: '20px',
+                lineHeight: 'normal'
+              }}
+            >
+              tetsuro@favouriteforalongtime.info
+            </a>
+          </div>
+        </div>
+
+        {/* Mobile Tags Section */}
+        <div className="p-4 pb-6">
+          <p 
+            className="text-black font-normal mb-3 text-left" 
+            style={{ 
+              fontSize: '18px',
+              fontFamily: 'Monument Grotesk, Arial, sans-serif'
+            }}
+          >
+            Favourite for a long time
+          </p>
+          <div className="space-y-2 text-left">
+            <div className="leading-relaxed">
+              <span className="text-black text-sm font-medium mr-2">#Web Design</span>
+              <span className="text-black text-sm font-medium mr-2">#Graphic Design</span>
+              <span className="text-black text-sm font-medium mr-2">#富士日記</span>
+            </div>
+            <div className="leading-relaxed">
+              <span className="text-black text-sm font-medium mr-2">#Typeface</span>
+              <span className="text-black text-sm font-medium mr-2">#SF</span>
+              <span className="text-black text-sm font-medium mr-2">#Surly</span>
+            </div>
+            <div className="leading-relaxed">
+              <span className="text-black text-sm font-medium mr-2">#Dark Souls</span>
+              <span className="text-black text-sm font-medium mr-2">#Rivendell</span>
+              <span className="text-black text-sm font-medium mr-2">#深沢七郎</span>
+            </div>
+            <div className="leading-relaxed">
+              <span className="text-black text-sm font-medium mr-2">#弱虫ペダル</span>
+              <span className="text-black text-sm font-medium mr-2">#セザンヌ</span>
+              <span className="text-black text-sm font-medium mr-2">#Crust Bikes</span>
+            </div>
+            <div className="leading-relaxed">
+              <span className="text-black text-sm font-medium mr-2">#タナカカツキ</span>
+              <span className="text-black text-sm font-medium">#Kasper Florio</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Works Section */}
+        <div className="p-4">
+          <div className="text-left mb-6">
+            <p 
+              className="text-black mb-2 font-normal"
+              style={{ 
+                fontFamily: 'Monument Grotesk, Arial, sans-serif',
+                fontSize: '18px',
+                lineHeight: 'normal'
+              }}
+            >
+              Works
+            </p>
+            <a 
+              href="https://badbadnotgood.design/" 
+              className="text-black font-normal break-all"
+              style={{ 
+                fontFamily: 'Monument Grotesk, Arial, sans-serif',
+                fontSize: '18px',
+                lineHeight: 'normal'
+              }}
+            >
+              https://badbadnotgood.design/
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Desktop Layout */}
+      <div className="hidden lg:grid min-h-screen grid-cols-12 grid-rows-12">
+        {/* Top Right Header */}
+        <header className="col-span-12 row-span-2 flex justify-end items-start relative z-10">
+          <h1 className="font-normal text-gray-900 leading-none" style={{ fontFamily: 'Monument Grotesk, sans-serif', marginTop: '30px', marginRight: '50px', fontSize: 'clamp(60px, 5vw, 120px)' }}>
+            Favourite
+          </h1>
+        </header>
+
+        {/* Left Side - Artwork Area */}
+        <div className="col-span-6 row-span-8 p-12 flex items-center justify-center relative">
+          <div className="w-screen h-screen fixed top-0 left-0 flex items-center justify-center pointer-events-none z-0">
+            <div className="w-4/5 h-4/5 relative">
+              <Image
+                src="/human01.svg"
+                alt="Human artwork"
+                fill
+                className="object-contain"
+                priority
+              />
+              {/* Curved Text overlay */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="relative w-full h-full">
+                  <CurvedText />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Right Side - Spacer */}
+        <div className="col-span-6 row-span-8"></div>
+
+        {/* Bottom Left - Contact */}
+        <div className="fixed bottom-0 left-0 z-20" style={{ marginLeft: '30px', marginBottom: '50px' }}>
+          <div className="text-left">
+            <p 
+              className="text-black mb-2 font-normal"
+              style={{ 
+                fontFamily: 'Monument Grotesk, Arial, sans-serif',
+                fontSize: 'clamp(40px, 3.47vw, 83px)',
+                lineHeight: 'normal'
+              }}
+            >
+              Contact
+            </p>
+            <a 
+              href="mailto:tetsuro@favouriteforalongtime.info" 
+              className="text-black font-normal"
+              style={{ 
+                fontFamily: 'Monument Grotesk, Arial, sans-serif',
+                fontSize: 'clamp(40px, 3.47vw, 83px)',
+                lineHeight: 'normal'
+              }}
+            >
+              tetsuro@favouriteforalongtime.info
+            </a>
+          </div>
+        </div>
+
+        {/* Bottom Right - Spacer */}
+        <div className="col-span-6 row-span-2"></div>
+
+        {/* Fixed Bottom Right - Site Info Group (Desktop Only) */}
+        <div className="fixed bottom-0 right-0 z-20" style={{ marginRight: '50px', marginBottom: '50px' }}>
+          <div style={{ backgroundColor }}>
+            <p 
+              className="text-black font-normal mb-4 text-left" 
+              style={{ 
+                fontSize: 'clamp(20px, 1.67vw, 40px)',
+                fontFamily: 'Monument Grotesk, Arial, sans-serif'
+              }}
+            >
+              Favourite for a long time
+            </p>
+            <div className="space-y-1 text-left mb-4">
+              <div className="leading-tight">
+                <span className="text-black text-sm font-medium mr-1">#Web Design</span>
+                <span className="text-black text-sm font-medium mr-1">#Graphic Design</span>
+                <span className="text-black text-sm font-medium mr-1">#富士日記</span>
+                <span className="text-black text-sm font-medium mr-1">#Typeface</span>
+                <span className="text-black text-sm font-medium mr-1">#SF</span>
+                <span className="text-black text-sm font-medium">#Surly</span>
+              </div>
+              <div className="leading-tight">
+                <span className="text-black text-sm font-medium mr-1">#Dark Souls</span>
+                <span className="text-black text-sm font-medium mr-1">#Rivendell</span>
+                <span className="text-black text-sm font-medium mr-1">#深沢七郎</span>
+                <span className="text-black text-sm font-medium mr-1">#弱虫ペダル</span>
+                <span className="text-black text-sm font-medium">#セザンヌ</span>
+              </div>
+              <div className="leading-tight">
+                <span className="text-black text-sm font-medium mr-1">#Crust Bikes</span>
+                <span className="text-black text-sm font-medium mr-1">#タナカカツキ</span>
+                <span className="text-black text-sm font-medium">#Kasper Florio</span>
+              </div>
+            </div>
+            <div className="text-left flex items-center gap-2">
+              <p 
+                className="text-black font-normal"
+                style={{ 
+                  fontSize: 'clamp(16px, 1.25vw, 30px)',
+                  fontFamily: 'Monument Grotesk, Arial, sans-serif'
+                }}
+              >
+                Works
+              </p>
+              <a 
+                href="https://badbadnotgood.design/" 
+                className="text-black font-normal underline"
+                style={{ 
+                  fontSize: 'clamp(16px, 1.25vw, 30px)',
+                  fontFamily: 'Monument Grotesk, Arial, sans-serif'
+                }}
+              >
+                https://badbadnotgood.design/
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
