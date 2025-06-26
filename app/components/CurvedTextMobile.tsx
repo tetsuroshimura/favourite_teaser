@@ -10,6 +10,9 @@ export default function CurvedTextMobile() {
       className="absolute inset-0 w-full h-full pointer-events-none z-10"
       xmlns="http://www.w3.org/2000/svg"
       preserveAspectRatio="xMidYMid meet"
+      style={{ 
+        overflow: 'visible'
+      }}
     >
       <defs>
         {/* Mobile text path from human_text01_sp.svg */}

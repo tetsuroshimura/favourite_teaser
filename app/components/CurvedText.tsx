@@ -12,7 +12,8 @@ export default function CurvedText() {
       preserveAspectRatio="xMidYMid meet"
       style={{ 
         transformOrigin: 'center',
-        transform: 'scale(1.06)'
+        transform: 'scale(1.06)',
+        overflow: 'visible'
       }}
     >
       <defs>
