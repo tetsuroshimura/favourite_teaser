@@ -359,6 +359,14 @@ input[type="color"]::-moz-color-swatch {
   animation-delay: 2s;
 }
 
+/* Artwork size responsive behavior */
+@media (min-width: 1440px) {
+  .artwork-container {
+    width: 80% !important;
+    height: 80% !important;
+  }
+}
+
 /* Mobile responsiveness */
 @media (max-width: 768px) {
   .color-picker-swatch {
