@@ -28,7 +28,7 @@ export default function CurvedTextMobile() {
         className="fill-gray-800"
         style={{ 
           fontFamily: '"Monument Grotesk", "MFW-PIshiiGothicStdN-M", "Noto Sans JP", sans-serif',
-          fontSize: 'clamp(8px, 2.5vw, 12px)',
+          fontSize: '15px',
           letterSpacing: '0px',
           fontWeight: 400
         }}

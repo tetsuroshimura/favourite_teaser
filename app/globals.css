@@ -146,7 +146,7 @@ body {
   
   /* Mobile-specific adjustments for curved text */
   svg text {
-    font-size: clamp(10px, 3vw, 14px) !important;
+    font-size: 15px !important;
   }
   
   /* Ensure proper text wrapping on mobile */
@@ -181,7 +181,7 @@ body {
   }
   
   svg text {
-    font-size: clamp(8px, 2.5vw, 12px) !important;
+    font-size: 15px !important;
   }
   
   /* Smaller mobile artwork */
@@ -193,7 +193,7 @@ body {
 /* Ensure curved text remains visible and readable */
 @media (max-width: 1024px) {
   svg text textPath {
-    font-size: inherit;
+    font-size: 15px !important;
     letter-spacing: 0;
   }
 }
@@ -282,7 +282,7 @@ input[type="color"]::-moz-color-swatch {
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Marquee Animation */
+/* Marquee Animation - Seamless infinite scroll */
 @keyframes marquee {
   0% {
     transform: translateX(0%);
@@ -294,6 +294,13 @@ input[type="color"]::-moz-color-swatch {
 
 .animate-marquee {
   animation: marquee 30s linear infinite;
+}
+
+/* Mobile version - 2x speed */
+@media (max-width: 1024px) {
+  .animate-marquee {
+    animation: marquee 15s linear infinite;
+  }
 }
 
 /* Mobile responsiveness */

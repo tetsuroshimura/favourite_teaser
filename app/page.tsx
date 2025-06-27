@@ -12,13 +12,16 @@ export default function Home() {
   const [backgroundColor, setBackgroundColor] = useState('#ffffff');
   const [svgColor, setSvgColor] = useState('#0039CB');
 
+
   const handleBackgroundColorChange = (color: string) => {
     setBackgroundColor(color);
   };
 
   const handleSvgColorChange = (color: string) => {
+    console.log('SVG color changed to:', color);
     setSvgColor(color);
   };
+
 
   // Update SVG stroke colors when svgColor changes
   useEffect(() => {
@@ -119,7 +122,7 @@ export default function Home() {
       <div className="lg:hidden flex flex-col min-h-screen">
         {/* Mobile Header */}
         <header>
-          <h1 className="font-normal text-gray-900 leading-none" style={{ fontFamily: 'Monument Grotesk, sans-serif', marginLeft: '20px', marginTop: '20px', fontSize: '50px' }}>
+          <h1 className="font-normal text-gray-900 leading-none" style={{ fontFamily: 'Monument Grotesk, sans-serif', marginLeft: '20px', marginTop: '20px', fontSize: '36px' }}>
             Favourite
           </h1>
         </header>
@@ -129,9 +132,9 @@ export default function Home() {
           <div 
             className="relative"
             style={{ 
-              width: '400px',
-              height: '520px',
-              maxWidth: '90vw'
+              width: '440px',
+              height: '572px',
+              maxWidth: '95vw'
             }}
           >
             <div 
