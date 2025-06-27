@@ -26,7 +26,7 @@ export default function CurvedText() {
       
       {/* Static Japanese text following the path */}
       <text 
-        className="fill-gray-800"
+        className="fill-black"
         style={{ 
           fontFamily: '"Monument Grotesk", "MFW-PIshiiGothicStdN-M", "Noto Sans JP", sans-serif',
           fontSize: 'clamp(12px, 3.6vw, 15.84px)',
@@ -35,7 +35,7 @@ export default function CurvedText() {
         }}
       >
         <textPath href="#textPath" startOffset="0%">
-          Favouriteは、webデザイナーの志村徹朗によるデザインスタジオです。webデザイン、グラフィックデザインを中心にできることをやっていきます。インターネット文化や、自転車、絵画の考え方を応用しながら、あらゆる形を作り出す手伝いを行います。自主企画での制作や、コミュニティへの貢献活動も含みます。気軽にご相談ください。
+          Favouriteは、デザイナー志村徹朗のデザイン活動を行うスタジオです。webデザイン・グラフィックデザインを中心に、インターネット文化、自転車文化、絵画、ゲーム、アニメ、日々の生活から得たアイデアを活かした制作を行います。クライアントワークから自主企画、コミュニティへの貢献などをやっていく予定です。お気軽にご相談ください。
         </textPath>
       </text>
     </svg>

@@ -11,6 +11,7 @@ import { useState, useEffect } from "react";
 export default function Home() {
   const [backgroundColor, setBackgroundColor] = useState('#ffffff');
   const [svgColor, setSvgColor] = useState('#0039CB');
+  const [isCopied, setIsCopied] = useState(false);
 
 
   const handleBackgroundColorChange = (color: string) => {
@@ -20,6 +21,22 @@ export default function Home() {
   const handleSvgColorChange = (color: string) => {
     console.log('SVG color changed to:', color);
     setSvgColor(color);
+  };
+
+  const copyToClipboard = async (text: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      console.log('Email copied to clipboard');
+      setIsCopied(true);
+      setTimeout(() => setIsCopied(false), 2000); // Reset after 2 seconds
+    } catch (err) {
+      console.error('Failed to copy email:', err);
+    }
+  };
+
+  const handleEmailClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    copyToClipboard('tetsuro@favourite.design');
   };
 
 
@@ -110,7 +127,7 @@ export default function Home() {
       style={{ backgroundColor }}
     >
       {/* Color Pickers - Desktop: top-left, Mobile: top-right */}
-      <div className="fixed top-4 right-4 lg:left-4 lg:right-auto z-50 flex items-center gap-2.5">
+      <div className="fixed top-4 right-4 lg:top-5 lg:left-7.5 lg:right-auto z-50 flex items-center gap-2.5">
         <ColorPicker onColorChange={handleBackgroundColorChange} />
         <SVGColorPicker onColorChange={handleSvgColorChange} />
       </div>
@@ -122,7 +139,7 @@ export default function Home() {
       <div className="lg:hidden flex flex-col min-h-screen">
         {/* Mobile Header */}
         <header>
-          <h1 className="font-normal text-gray-900 leading-none" style={{ fontFamily: 'Monument Grotesk, sans-serif', marginLeft: '20px', marginTop: '20px', fontSize: '36px' }}>
+          <h1 className="font-normal text-black leading-none" style={{ fontFamily: 'Monument Grotesk, sans-serif', marginLeft: '20px', marginTop: '20px', fontSize: '36px' }}>
             Favourite
           </h1>
         </header>
@@ -174,17 +191,28 @@ export default function Home() {
             >
               Contact
             </p>
-            <a 
-              href="mailto:tetsuro@favourite.design" 
-              className="text-black font-normal break-all"
-              style={{ 
-                fontFamily: 'Monument Grotesk, Arial, sans-serif',
-                fontSize: '20px',
-                lineHeight: 'normal'
-              }}
-            >
-              tetsuro@favourite.design
-            </a>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={handleEmailClick}
+                className="text-black font-normal break-all text-left cursor-pointer hover:underline"
+                style={{ 
+                  fontFamily: 'Monument Grotesk, Arial, sans-serif',
+                  fontSize: '20px',
+                  lineHeight: 'normal'
+                }}
+              >
+                tetsuro@favourite.design
+              </button>
+              <div className="flex-shrink-0 p-1">
+                <Image
+                  src={isCopied ? "/check.svg" : "/content_copy.svg"}
+                  alt={isCopied ? "Copied" : "Copy"}
+                  width={16}
+                  height={16}
+                  className={`transition-opacity duration-200 ${isCopied ? 'opacity-100' : 'opacity-100'}`}
+                />
+              </div>
+            </div>
           </div>
         </div>
 
@@ -232,6 +260,8 @@ export default function Home() {
             </p>
             <a 
               href="https://badbadnotgood.design/" 
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-black font-normal break-all"
               style={{ 
                 fontFamily: 'Monument Grotesk, Arial, sans-serif',
@@ -249,7 +279,7 @@ export default function Home() {
       <div className="hidden lg:grid min-h-screen grid-cols-12 grid-rows-12">
         {/* Top Right Header */}
         <header className="col-span-12 row-span-2 flex justify-end items-start relative z-10">
-          <h1 className="font-normal text-gray-900 leading-none" style={{ fontFamily: 'Monument Grotesk, sans-serif', marginTop: '30px', marginRight: '50px', fontSize: 'clamp(60px, 5vw, 120px)' }}>
+          <h1 className="font-normal text-black leading-none" style={{ fontFamily: 'Monument Grotesk, sans-serif', marginTop: '30px', marginRight: '50px', fontSize: 'clamp(60px, 5vw, 120px)' }}>
             Favourite
           </h1>
         </header>
@@ -291,17 +321,28 @@ export default function Home() {
             >
               Contact
             </p>
-            <a 
-              href="mailto:tetsuro@favourite.design" 
-              className="text-black font-normal"
-              style={{ 
-                fontFamily: 'Monument Grotesk, Arial, sans-serif',
-                fontSize: 'clamp(40px, 3.47vw, 83px)',
-                lineHeight: 'normal'
-              }}
-            >
-              tetsuro@favourite.design
-            </a>
+            <div className="flex items-center gap-3">
+              <button
+                onClick={handleEmailClick}
+                className="text-black font-normal text-left cursor-pointer hover:underline"
+                style={{ 
+                  fontFamily: 'Monument Grotesk, Arial, sans-serif',
+                  fontSize: 'clamp(40px, 3.47vw, 83px)',
+                  lineHeight: 'normal'
+                }}
+              >
+                tetsuro@favourite.design
+              </button>
+              <div className="flex-shrink-0 p-2">
+                <Image
+                  src={isCopied ? "/check.svg" : "/content_copy.svg"}
+                  alt={isCopied ? "Copied" : "Copy"}
+                  width={24}
+                  height={24}
+                  className={`transition-opacity duration-200 ${isCopied ? 'opacity-100' : 'opacity-100'}`}
+                />
+              </div>
+            </div>
           </div>
         </div>
 
@@ -352,6 +393,8 @@ export default function Home() {
               </p>
               <a 
                 href="https://badbadnotgood.design/" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-black font-normal underline"
                 style={{ 
                   fontSize: 'clamp(16px, 1.25vw, 30px)',
