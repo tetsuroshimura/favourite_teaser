@@ -25,7 +25,7 @@ export default function CurvedTextMobile() {
       
       {/* Japanese text following the mobile path */}
       <text 
-        className="fill-gray-800"
+        className="fill-black svg-line-animation"
         style={{ 
           fontFamily: '"Monument Grotesk", "MFW-PIshiiGothicStdN-M", "Noto Sans JP", sans-serif',
           fontSize: '15px',
@@ -33,8 +33,8 @@ export default function CurvedTextMobile() {
           fontWeight: 400
         }}
       >
-        <textPath href="#textPathMobile" startOffset="0%"　>
-          Favouriteは、デザイナー志村徹朗のデザイン活動を行うスタジオです。webデザイン・グラフィックデザインを中心に、インターネット文化、自転車文化、絵画、ゲーム、アニメ、日々の生活から得たアイデアを活かした制作を行います。委託制作から企画、コミュニティへの貢献などをやっていきます。お気軽にご相談ください。
+        <textPath href="#textPathMobile" startOffset="0%">
+          Favouriteは、志村徹朗がデザイン活動を行うスタジオです。webデザイン・グラフィックデザインを中心に、インターネット文化、自転車文化、絵画、ゲーム、アニメ、日々の生活から得たアイデアを活かした制作を行います。委託制作から企画、コミュニティへの貢献などをやっていきます。お気軽にご相談ください。
         </textPath>
       </text>
     </svg>

@@ -6,12 +6,15 @@ import CurvedTextMobile from "./components/CurvedTextMobile";
 import ColorPicker from "./components/ColorPicker";
 import SVGColorPicker from "./components/SVGColorPicker";
 import MarqueeText from "./components/MarqueeText";
+import AnimatedArtwork from "./components/AnimatedArtwork";
+import AnimatedArtworkMobile from "./components/AnimatedArtworkMobile";
 import { useState, useEffect } from "react";
 
 export default function Home() {
   const [backgroundColor, setBackgroundColor] = useState('#ffffff');
   const [svgColor, setSvgColor] = useState('#0039CB');
   const [isCopied, setIsCopied] = useState(false);
+  const [animateKey, setAnimateKey] = useState(0);
 
 
   const handleBackgroundColorChange = (color: string) => {
@@ -21,6 +24,8 @@ export default function Home() {
   const handleSvgColorChange = (color: string) => {
     console.log('SVG color changed to:', color);
     setSvgColor(color);
+    // Trigger animation restart
+    setAnimateKey(prev => prev + 1);
   };
 
   const copyToClipboard = async (text: string) => {
@@ -161,12 +166,8 @@ export default function Home() {
                 height: '100%'
               }}
             >
-              <Image
-                src="/human01_sp.svg"
-                alt="Human artwork"
-                fill
-                className="object-contain"
-                priority
+              <AnimatedArtworkMobile
+                key={`mobile-${animateKey}`}
               />
               {/* Mobile Curved Text overlay */}
               <div className="absolute inset-0 flex items-center justify-center">
@@ -288,12 +289,8 @@ export default function Home() {
         <div className="col-span-6 row-span-8 p-12 flex items-center justify-center relative">
           <div className="w-screen h-screen fixed top-0 left-0 flex items-center justify-center pointer-events-none z-0">
             <div className="w-4/5 h-4/5 relative">
-              <Image
-                src="/human01.svg"
-                alt="Human artwork"
-                fill
-                className="object-contain"
-                priority
+              <AnimatedArtwork
+                key={`desktop-${animateKey}`}
               />
               {/* Curved Text overlay */}
               <div className="absolute inset-0 flex items-center justify-center">
