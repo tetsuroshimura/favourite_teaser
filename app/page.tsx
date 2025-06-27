@@ -291,8 +291,8 @@ export default function Home() {
 
         {/* Left Side - Artwork Area */}
         <div className="col-span-6 row-span-8 p-12 flex items-center justify-center relative">
-          <div className="w-screen h-screen fixed top-0 left-0 flex items-center justify-center pointer-events-none z-0">
-            <div className="w-4/5 h-4/5 relative">
+          <div className="w-screen h-screen fixed top-0 left-0 flex items-center justify-center pointer-events-none z-0" style={{ transform: 'translateY(-2vh)' }}>
+            <div className="relative" style={{ width: '88%', height: '88%' }}>
               <AnimatedArtwork
                 key={`desktop-${animateKey}`}
               />
