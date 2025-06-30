@@ -59,11 +59,22 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <head>
+        {/* Open Graph meta tags */}
+        <meta property="og:title" content="Favourite - Design Studio" />
+        <meta property="og:description" content="Favouriteは、志村徹朗によるデザイン活動を行うスタジオです。オンスクリーンメディアのデザイン、グラフィックデザインを中心に、インターネット文化、自転車文化、絵画、ゲーム、アニメ、哲学、生活から得たアイデアを別の仕方でかたちにすることを試みています。委託制作から企画、文化、コミュニティへの貢献をやっていきます。お気軽にご相談ください。" />
+        <meta property="og:url" content="https://favourite.design/" />
+        <meta property="og:type" content="website" />
         <meta property="og:image" content="https://favourite.design/ogp.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:type" content="image/png" />
+        
+        {/* Twitter Card meta tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Favourite - Design Studio" />
+        <meta name="twitter:description" content="Favouriteは、志村徹朗によるデザイン活動を行うスタジオです。オンスクリーンメディアのデザイン、グラフィックデザインを中心に、インターネット文化、自転車文化、絵画、ゲーム、アニメ、哲学、生活から得たアイデアを別の仕方でかたちにすることを試みています。委託制作から企画、文化、コミュニティへの貢献をやっていきます。お気軽にご相談ください。" />
         <meta name="twitter:image" content="https://favourite.design/ogp.png" />
+        
         <link rel="stylesheet" href="https://morisawafonts.net/c/01JYMVWWK1RZRSMGX144DJKKTR/mf.css" />
       </head>
       <body
