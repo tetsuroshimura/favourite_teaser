@@ -22,6 +22,7 @@ const notoSansJP = Noto_Sans_JP({
 export const metadata: Metadata = {
   title: "Favourite",
   description: "Favouriteは、志村徹朗によるデザイン活動を行うスタジオです。オンスクリーンメディアのデザイン、グラフィックデザインを中心に、インターネット文化、自転車文化、絵画、ゲーム、アニメ、哲学、生活から得たアイデアを別の仕方でかたちにすることを試みています。委託制作から企画、文化、コミュニティへの貢献をやっていきます。お気軽にご相談ください。",
+  metadataBase: new URL('https://favourite.design'),
   openGraph: {
     title: "Favourite",
     description: "Favouriteは、志村徹朗によるデザイン活動を行うスタジオです。オンスクリーンメディアのデザイン、グラフィックデザインを中心に、インターネット文化、自転車文化、絵画、ゲーム、アニメ、哲学、生活から得たアイデアを別の仕方でかたちにすることを試みています。委託制作から企画、文化、コミュニティへの貢献をやっていきます。お気軽にご相談ください。",
@@ -34,6 +35,8 @@ export const metadata: Metadata = {
       }
     ],
     type: 'website',
+    siteName: 'Favourite',
+    locale: 'ja_JP',
   },
   twitter: {
     card: 'summary_large_image',
@@ -54,8 +57,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ja">
       <head>
+        <meta property="og:image" content="https://favourite.design/ogp.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:type" content="image/png" />
+        <meta name="twitter:image" content="https://favourite.design/ogp.png" />
         <link rel="stylesheet" href="https://morisawafonts.net/c/01JYMVWWK1RZRSMGX144DJKKTR/mf.css" />
       </head>
       <body
