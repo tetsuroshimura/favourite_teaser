@@ -384,6 +384,7 @@ export default function Home() {
               <span className="text-black font-medium" style={{ fontFamily: 'Monument Grotesk, "MFW-PIshiiGothicStdN-M", sans-serif', fontWeight: 400, fontSize: '18px', marginRight: '10px', whiteSpace: 'nowrap' }}>#Fontaines DC</span>
               <span className="text-black font-medium" style={{ fontFamily: '"MFW-PIshiiGothicStdN-M", "Monument Grotesk", sans-serif', fontSize: '18px', marginRight: '10px', whiteSpace: 'nowrap' }}>#タナカカツキ</span>
               <span className="text-black font-medium" style={{ fontFamily: 'Monument Grotesk, "MFW-PIshiiGothicStdN-M", sans-serif', fontWeight: 400, fontSize: '18px', marginRight: '10px', whiteSpace: 'nowrap' }}>#Kasper Florio</span>
+              <span className="text-black font-medium" style={{ fontFamily: '"MFW-PIshiiGothicStdN-M", "Monument Grotesk", sans-serif', fontSize: '18px', marginRight: '10px', whiteSpace: 'nowrap' }}>#ちいさこべえ</span>
             </div>
             <div className="text-left flex items-center gap-2">
               <p 
